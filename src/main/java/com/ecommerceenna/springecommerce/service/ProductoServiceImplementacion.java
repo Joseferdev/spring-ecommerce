@@ -3,9 +3,12 @@ package com.ecommerceenna.springecommerce.service;
 import com.ecommerceenna.springecommerce.model.Producto;
 import com.ecommerceenna.springecommerce.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProductoServiceImplementacion implements ProductoService{
 
     @Autowired
@@ -29,5 +32,10 @@ public class ProductoServiceImplementacion implements ProductoService{
     @Override
     public void delete(Integer id) {
         productoRepository.findById(id);
+    }
+
+    @Override
+    public List<Producto> findAll() {
+        return productoRepository.findAll();
     }
 }
